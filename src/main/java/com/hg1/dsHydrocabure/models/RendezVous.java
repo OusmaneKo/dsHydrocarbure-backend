@@ -1,0 +1,42 @@
+package com.hg1.dsHydrocabure.models;
+
+import jakarta.persistence.*;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.*;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "rendezVous")
+@Where(clause = "etat <> 0")
+@SQLDelete(sql = "UPDATE rendezVous set etat = 1 Where id=?", check = ResultCheckStyle.COUNT)
+public class RendezVous extends AbstractEntity{
+    private LocalDateTime dateHeure;
+    private String motif;
+    private String statut;
+
+    @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinColumn(foreignKey = @ForeignKey(name = "clt_fk", value = ConstraintMode.NO_CONSTRAINT), name = "clientId", referencedColumnName = "id",
+            updatable = false, insertable = false)
+    private Client client;
+
+    @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinColumn(foreignKey = @ForeignKey(name = "vhle.fh", value = ConstraintMode.NO_CONSTRAINT), name = "vehiculeId", referencedColumnName = "id",
+    updatable = false, insertable = false)
+    private Vehicule vehicule;
+
+   /* @ManyToOne
+    private Utilisateur technicienAttribue;
+
+    */
+
+}
