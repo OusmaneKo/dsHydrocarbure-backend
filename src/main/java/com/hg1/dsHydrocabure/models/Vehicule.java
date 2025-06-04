@@ -21,7 +21,7 @@ import java.util.List;
 public class Vehicule extends AbstractEntity {
 
     private String marque;
-    private String modele;
+    private String model;
     private String immatriculation;
 
     @ManyToOne

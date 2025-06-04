@@ -14,9 +14,9 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "rendezVous")
+@Table(name = "rendez_vous")
 @Where(clause = "etat <> 0")
-@SQLDelete(sql = "UPDATE rendezVous set etat = 1 Where id=?", check = ResultCheckStyle.COUNT)
+@SQLDelete(sql = "UPDATE rendez_vous set etat = 1 Where id=?", check = ResultCheckStyle.COUNT)
 public class RendezVous extends AbstractEntity{
     private LocalDateTime dateHeure;
     private String motif;
@@ -30,13 +30,15 @@ public class RendezVous extends AbstractEntity{
 
     @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)
-    @JoinColumn(foreignKey = @ForeignKey(name = "vhle.fh", value = ConstraintMode.NO_CONSTRAINT), name = "vehiculeId", referencedColumnName = "id",
+    @JoinColumn(foreignKey = @ForeignKey(name = "vhle.fk", value = ConstraintMode.NO_CONSTRAINT), name = "vehiculeId", referencedColumnName = "id",
     updatable = false, insertable = false)
     private Vehicule vehicule;
 
-   /* @ManyToOne
-    private Utilisateur technicienAttribue;
+    @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinColumn(foreignKey = @ForeignKey(name = "tech_fk", value = ConstraintMode.NO_CONSTRAINT), name = "usersId", referencedColumnName = "id",
+    updatable = false, insertable = false)
+    private Users technicienAttribue;
 
-    */
 
 }
