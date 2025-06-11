@@ -1,0 +1,13 @@
+F1##Créer une fiche d'intervention##M1##1
+F2##Facturation##M1##2
+F3##Paiement##M1##3
+F4##Diagnostique##M2##4
+F5##Prescription##M2##5
+F6##Examen##M2##6
+F7##Hospitalisation d'un patient##M3##7
+F8##Gestion de caisses##M4##8
+F9##Gestion des assurances##M4##9
+F10##Gestion des examens##M4##10
+F11##Gestion des Chambres et Lits##M4##11
+F12##Gestion Des Médecins##M4##12
+F13##Gestion des Consultations##M4##13

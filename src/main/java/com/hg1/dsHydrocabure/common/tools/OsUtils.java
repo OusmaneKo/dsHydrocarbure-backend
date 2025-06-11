@@ -67,7 +67,6 @@ public class OsUtils {
     }
 
     public static String getTempDir() {
-        //  return getOsHomeDir() + "/" + AppConstants.DIR_TEMP;
-        return "";
+        return getOsHomeDir() + "/" + AppConstants.DIR_TEMP;
     }
 }

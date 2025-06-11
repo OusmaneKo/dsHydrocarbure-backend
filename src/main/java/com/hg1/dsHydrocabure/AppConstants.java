@@ -1,6 +1,6 @@
 package com.hg1.dsHydrocabure;
 
-public class AppConstants {
+public interface AppConstants {
 
     String APP_NAME = "dsHydrocarbure";
     String DEFAULT_PAGE_NUMBER = "0";
